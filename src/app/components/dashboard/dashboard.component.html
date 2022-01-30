@@ -1,0 +1,89 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+     
+    
+
+        <div class="col-xl-6 col-md-6 xl-50">
+            <div class="card o-hidden  widget-cards">
+                <div class="bg-secondary card-body">
+                    <div class="media static-top-widget row">
+                        <div class="icons-widgets col-4">
+                            <div class="align-self-center text-center">
+                                <app-feather-icons [icon]="'users'" class="font-danger"></app-feather-icons>
+                                <!-- <app-feather-icons [icon]="'box'" class="font-secondary"></app-feather-icons> -->
+                            </div>
+                        </div>
+                        <div class="media-body col-8"><span class="m-0">Clients</span>
+                            <h3 class="mb-0"> <span class="counter" [CountTo]="nbrClient" [from]="0"
+                                    [duration]="2">{{nbrClient}}</span><small> This Month</small></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 xl-50">
+            <div class="card o-hidden widget-cards">
+                <div class="bg-primary card-body">
+                    <div class="media static-top-widget row">
+                        <div class="icons-widgets col-4">
+                            <div class="align-self-center text-center">
+                                <app-feather-icons [icon]="'dollar-sign'" class="font-primary"></app-feather-icons>
+                            </div>
+                        </div>
+                        <div class="media-body col-8"><span class="m-0"> Somme de dépenses</span>
+                            <h3 class="mb-0">$ <span class="counter" [CountTo]="nbrExpenses" [from]="0"
+                                    [duration]="2">{{nbrExpenses}}</span><small> This Month</small></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+ 
+       <div class="row">
+        <div class="col-xl-6 col-md-12 xl-50">
+            <div class="card o-hidden widget-cards"  style="height:200px ;width:100%" >
+                <app-charts *ngIf="isLoaded" my-id="chart1" type="bar" [data]="data1" [labels]="labels1" [title]="title1"></app-charts>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-md-12 xl-50">
+            <div class="card o-hidden widget-cards"  style="height:200px ;width:100%" >
+                <app-charts *ngIf="isLoaded" my-id="chart2" type="pie" [data]="data2" [labels]="labels2" [title]="title2"></app-charts>
+            </div>
+        </div>
+       
+       </div>
+
+       <div class="row">
+        <div class="col-md-12 xl-50" >
+            <div class="card o-hidden widget-cards" style="height:350px"  >
+                <canvas  #chartChild id="chartChild" ></canvas>
+                <!-- [ngStyle]="{'display': isLoaded2? none: bolck}"  -->
+            </div>
+        </div>
+       </div>
+   <div class="row">
+    <div class="col-md-12 xl-50" >
+        <div class="card o-hidden widget-cards" style="height:350px"  >
+            <canvas  #scatter id="scatter" style="position:absolute"></canvas>
+        </div>
+    </div>
+   </div>
+
+
+        
+
+
+     
+        
+       
+        
+      
+       
+
+</div>
+<!-- Container-fluid Ends-->
